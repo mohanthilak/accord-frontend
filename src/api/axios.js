@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = 'https://acccord.herokuapp.com';
+const BASE_URL = 'https://gokullsapp.herokuapp.com';
 
 export default axios.create({
     baseURL: BASE_URL

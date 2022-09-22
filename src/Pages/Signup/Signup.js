@@ -62,17 +62,30 @@ export default function Signup(){
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
-        const response = await axios.post('/signup',
-            JSON.stringify({ username, password, email }),
-            {
-                headers: {'Content-Type': 'application/json'},
-                withCredentials: true
+        
+        axios({
+            method: 'post',
+            url: "https://gokullsapp.herokuapp.com/signup",
+            data: {
+                username, password, email
             }
-        )
-        setUser(response.data.result.username)
-        setAuthEmail(response.data.result.email)
-        navigate(from, {replace: true})
+        }).then(res=>{
+            console.log(res);
+            setUser(res.data.result.username);
+            setAuthEmail(res.data.result.email)
+            navigate(from, {replace: true});
+        })
+
+//         const response = await axios.post('/signup',
+//             JSON.stringify({ username, password, email }),
+//             {
+//                 headers: {'Content-Type': 'application/json'},
+//                 withCredentials: true
+//             }
+//         )
+//         setUser(response.data.result.username)
+//         setAuthEmail(response.data.result.email)
+//         navigate(from, {replace: true})
     }
 
     function navigateSignin(){

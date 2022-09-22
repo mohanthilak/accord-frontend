@@ -26,6 +26,7 @@ export default function Messaging({socket}){
 
 //     useEffect(() => {
         socket.on('receive_message', (data) => {
+            console.log("received message", data);
             setMessages(prev=> [...prev, {
                 chat: data.newChat, 
                 createdAt: data.timestamp,

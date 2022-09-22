@@ -24,7 +24,7 @@ export default function Messaging({socket}){
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[channelId])
 
-    useEffect(() => {
+//     useEffect(() => {
         socket.on('receive_message', (data) => {
             setMessages(prev=> [...prev, {
                 chat: data.newChat, 
@@ -32,7 +32,7 @@ export default function Messaging({socket}){
                 senderName: data.user
             }]) 
         })
-    },[socket])
+//     },[socket])
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({behavior: 'smooth'});
